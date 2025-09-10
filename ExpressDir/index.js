@@ -7,10 +7,11 @@ let port = 8080;
 app.listen(port, () => {
   console.log(` app listening on port ${port}`)
 })
- app.use((req,res)=>{
+ app.use("/",(req,res)=>{
    // res.send("<h1>Hello World</h1>"); // seding response to browser as a html 
   console.log("sending response");
-  res.send({name:"rahul",age:22}); // sending response to browser as a json object
+  res.send({name:"rahul",age:22});
+ // sending response to browser as a json object
   // res.send("Hello World"); // sending response to browser as a string
   // res.sendStatus(404); // sending response to browser as a status code
   // res.json({name:"rahul",age:22}); // sending response to browser as a json object
@@ -22,6 +23,13 @@ app.listen(port, () => {
   // res.attachment('filename.txt'); // setting attachment header
   // res.cookie('name', 'value'); // setting cookie
   // res
+
+   app.get('/:username/:id', (req, res) => {
+    console.log(req.params); // accessing route parameters
+    res.send("hello i am rahulheer");
+
+  });
+
  })
 
 module.exports = app;
