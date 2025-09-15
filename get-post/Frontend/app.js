@@ -1,4 +1,4 @@
-function personMaker(name, age) {
+function personMaker(name, age) { //factory function
   const person={
     name: name,
     age: age,
