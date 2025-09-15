@@ -2,7 +2,7 @@
 function Person(name, age) { //constructor function
   
    this.name=name,
-   this.age=age
+   this.age=age;
 } 
 Person.prototype.talk=function(){
     console.log(`Hello, my name is ${this.name} and I am ${this.age} years old.`);
