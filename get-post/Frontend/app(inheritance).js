@@ -1,5 +1,6 @@
 class Person { //constructor function
    constructor(name, age) { 
+    console.log("person class constructor called");
    this.name=name;
    this.age=age;
 }
@@ -7,28 +8,26 @@ talk(){
     console.log(`Hello, my name is ${this.name} and I am ${this.age} years old.`);
 }
 }
-class Student {
+class Student  extends Person{
     constructor(name, age,marks) {
-        this.name = name;
-        this.age = age;
+        console.log("student class constructor called");
+        super(name,age); //calling parent class constructor
+        
         this.marks = marks;
 
     }
-    talk() {
-        console.log(`Hello, my name is ${this.name} and I am ${this.age} years old.`);
-    }
+   
 }
 let stu=new Student("Alice", 20, 95);
 
-class Teacher{
+class Teacher extends Person{
     constructor(name, age,subject) {
-        this.name = name;
-        this.age = age;
+        console.log("teacher class constructor called");
+        super(name,age); //calling parent class constructor
+        
         this.subject = subject;
 
     }
-    talk() {
-        console.log(`Hello, my name is ${this.name} and I am ${this.age} years old.`);
-    }
+    
 }
 let t1=new Teacher("Bob", 40, "Math");
