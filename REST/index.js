@@ -3,6 +3,8 @@ const app = express()
 const port = 3000
 const path = require('path')
 const { v4: uuidv4 } = require('uuid');
+const methodOverride = require('method-override')
+app.use(methodOverride('_method')) // override with POST having ?_method=DELETE or ?_method=PUT
 ; // -> '9b1deb4d-3b7d-4bad-9bdd-2b0d7b3dcb6d'
 
 app.use(express.urlencoded({ extended: true }));
@@ -39,10 +41,12 @@ app.get('/posts/new',(req,res)=>{
     res.render('new.ejs');
 });
 app.get('/posts/:id/edit', (req, res) =>{
-    res.send('Hello World!')
+     let {id}=req.params;
+    let post=posts.find((p)=>id===p.id);
+    res.render('edit.ejs')
 });
 app.patch('/posts/:id',(req,res)=>{
-    let id=req.params.id;
+    let {id}=req.params.id;
     let newContent=req.body.content;
     console.log(newContent)
     console.log(id)
@@ -55,7 +59,7 @@ app.patch('/posts/:id',(req,res)=>{
 app.get('/posts/:id', (req, res) =>{
     let {id}=req.params;
    let post=posts.find((p)=>id===p.id);
-   res.render('show.ejs',{post})
+   res.render('show.ejs',{post,id})
 });
 app.post('/posts',(req,res)=>{ 
    let {username,content}=req.body;
