@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>blog post app</title>
+   <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+    <h1>Blog Post App</h1>
+    <% for(post of posts){ %>
+        <div class="post">
+            <h2 class="user">@<%= post.username %></h2>
+        <p><%= post.content %></p>
+        <hr>
+
+        </div>
+        
+    <% } %>
+</body>
+</html>
+
