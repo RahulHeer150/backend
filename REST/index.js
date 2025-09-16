@@ -38,8 +38,18 @@ app.get('/posts', (req, res) =>{
 app.get('/posts/new',(req,res)=>{
     res.render('new.ejs');
 });
+app.get('/posts/:id/edit', (req, res) =>{
+    res.send('Hello World!')
+});
 app.patch('/posts/:id',(req,res)=>{
-   
+    let id=req.params.id;
+    let newContent=req.body.content;
+    console.log(newContent)
+    console.log(id)
+    let post=posts.find((p)=>id===p.id);
+    post.content=newContent;
+    console.log(posts)
+   res.send("updating a post");
 });
 
 app.get('/posts/:id', (req, res) =>{
