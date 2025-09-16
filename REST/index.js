@@ -38,6 +38,9 @@ app.get('/posts', (req, res) =>{
 app.get('/posts/new',(req,res)=>{
     res.render('new.ejs');
 });
+app.patch('/posts/:id',(req,res)=>{
+   
+});
 
 app.get('/posts/:id', (req, res) =>{
     let {id}=req.params;
