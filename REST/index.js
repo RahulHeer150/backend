@@ -32,7 +32,7 @@ let posts=[
         content:"hello this is my first internship"
     },
 ]
-
+//index route to show all posts
 app.get('/posts', (req, res) =>{
      res.render('index.ejs',{posts})
 });
