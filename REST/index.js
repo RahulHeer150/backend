@@ -52,7 +52,7 @@ app.patch('/posts/:id',(req,res)=>{
     let post=posts.find((p)=>id===p.id);
     post.content=newContent;
     console.log(post);
-   res.send("updating a post");
+   res.redirect("/posts");
    console.log(post);
 });
 
