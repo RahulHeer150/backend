@@ -16,8 +16,10 @@
         <a href="http://localhost:3000/posts/<%=post.id%>">see in details</a>
         <a href="http://localhost:3000/posts/<%=post.id%>/edit">edit</a>
         <br>
-        <button>Delete Post</button>
-
+        <form action="/posts/<%= post.id %>?_method=DELETE" method="POST">
+            <button>Delete Post</button>
+        </form>
+       
         </div>
         
     <% } %>
