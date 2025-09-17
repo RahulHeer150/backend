@@ -53,21 +53,21 @@ app.patch('/posts/:id',(req,res)=>{
     console.log(id)
     let post=posts.find((p)=>id===p.id);
     post.content=newContent;
-    console.log(posts)
+    console.log(post);
    res.send("updating a post");
 });
 
 app.get('/posts/:id', (req, res) =>{
     let {id}=req.params;
    let post=posts.find((p)=>id===p.id);
-   res.render('show.ejs',{post,id})
+   res.render('show.ejs',{post})
 });
 app.post('/posts',(req,res)=>{ 
    let {username,content}=req.body;
    let id=uuidv4();
    posts.push({id,username,content});
    console.log(posts); // shows posts in server console
-    res.send("form submitted");
+    res.redirect("/posts");
     
 });
 app.listen(port, () => console.log(`Example app listening on port ${port}!`))
