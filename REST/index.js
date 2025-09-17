@@ -61,6 +61,8 @@ app.get('/posts/:id', (req, res) =>{
    let post=posts.find((p)=>id===p.id);
    res.render('show.ejs',{post})
 });
+
+ 
 app.post('/posts',(req,res)=>{ 
    let {username,content}=req.body;
    let id=uuidv4();
