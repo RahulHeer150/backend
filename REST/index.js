@@ -45,8 +45,9 @@ app.get('/posts/:id/edit', (req, res) =>{
     let post=posts.find((p)=>id===p.id);
     res.render('edit.ejs')
 });
+
 app.patch('/posts/:id',(req,res)=>{
-    let {id}=req.params.id;
+    let {id}=req.params;
     let newContent=req.body.content;
     console.log(newContent)
     console.log(id)
