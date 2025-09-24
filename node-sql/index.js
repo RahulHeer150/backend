@@ -7,31 +7,38 @@ const connection = mysql.createConnection({
   database : 'uni',
     password : 'Rahul$253@*7087'
 });
-try{
-connection.query("SHOW TABLES",
-    (err,results)=>{
-        if(err){
-            throw err;
-        }
-        console.log(results);
-
-    });
+//insert data
+let q='INSERT INTO unistd (id, username, email, password) VALUES ?';  
+let data=[];
+for(let i=0;i<100;i++){
+   console.log(getRandomUser());
 }
- catch(err){
-        console.log(err);
-    } 
+// try{
+// connection.query(q,unistd,
+//     (err,results)=>{
+//         if(err){
+//             throw err;
+//         }
+//         console.log(results);
 
-    connection.end();
+//     });
+// }
+//  catch(err){
+//         console.log(err);
+//     } 
+
+//     connection.end();
 
 
 let getRandomUser=() =>{
-  return {
-    userId: faker.string.uuid(),
-    username: faker.internet.username(),
-    email: faker.internet.email(),
+  return [
+    faker.string.uuid(),
+    faker.internet.username(),
+    faker.internet.email(),
+    faker.internet.password(),
+  ]
     
-    password: faker.internet.password(),
     
-  };
+
 }
 
