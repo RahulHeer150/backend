@@ -19,23 +19,24 @@ let getRandomUser=() =>{
 let q='INSERT INTO unistd (id, username, email, password) VALUES ?';  
 let data=[];
 for(let i=0;i<100;i++){
-   console.log(getRandomUser());
+   data.push(getRandomUser());
+   console.log(data);
 }
-// try{
-// connection.query(q,unistd,
-//     (err,results)=>{
-//         if(err){
-//             throw err;
-//         }
-//         console.log(results);
+try{
+connection.query(q,[data],
+    (err,results)=>{
+        if(err){
+            throw err;
+        }
+        console.log(results);
 
-//     });
-// }
-//  catch(err){
-//         console.log(err);
-//     } 
+    });
+}
+ catch(err){
+        console.log(err);
+    } 
 
-//     connection.end();
+    connection.end();
 
 
 
