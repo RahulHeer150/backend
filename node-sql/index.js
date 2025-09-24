@@ -8,6 +8,14 @@ const connection = mysql.createConnection({
     password : 'Rahul$253@*7087'
 });
 //insert data
+let getRandomUser=() =>{
+  return [
+    faker.string.uuid(),
+    faker.internet.username(),
+    faker.internet.email(),
+    faker.internet.password()
+  ]
+}
 let q='INSERT INTO unistd (id, username, email, password) VALUES ?';  
 let data=[];
 for(let i=0;i<100;i++){
@@ -30,15 +38,5 @@ for(let i=0;i<100;i++){
 //     connection.end();
 
 
-let getRandomUser=() =>{
-  return [
-    faker.string.uuid(),
-    faker.internet.username(),
-    faker.internet.email(),
-    faker.internet.password(),
-  ]
-    
-    
 
-}
 
