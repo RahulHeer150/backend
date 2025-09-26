@@ -10,11 +10,22 @@ async function connectToDatabase() {
     }
 }
 
+ 
+
 const userSchema = new mongoose.Schema({
     name: String,
     email: String,
     age: Number
 }); 
+
+
+
 const User = mongoose.model('User', userSchema);
+
+const user1=new User({
+    name:"rahul",
+    email:"rahul@gmail.com",
+    age:19,
+    });
 
 connectToDatabase();
